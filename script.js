@@ -2,7 +2,7 @@ let mainInput = document.querySelector('.input');
 let btnAgregar = document.querySelector('.boton-agregar');
 let container = document.querySelector('.container')
 
-class item{
+class Item{
 
     constructor(agregarTarea){
         this.crearDiv(agregarTarea)
