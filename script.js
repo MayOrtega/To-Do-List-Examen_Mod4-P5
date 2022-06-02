@@ -10,15 +10,40 @@ class Item{
     crearDiv(agregarTarea){
      
         const newDiv = document.createElement('div');
-        container.appendChild(newDiv)
+        newDiv.classList.add = 'item';
+        container.appendChild(newDiv);
 
-        const newInput = document.createElement('input');
-        newInput.value = 'agregarTarea'
-        newDiv.appendChild(newInput)
+        const inputItem = document.createElement('input');
+        inputItem.value = agregarTarea;
+        inputItem.type = 'text';
+        inputItem.disabled = true;
+        inputItem.classList.add = 'item-input';
+        newDiv.appendChild(inputItem);
 
+        const botonEditar = document.createElement('button');
+        botonEditar.innerHTML = "<i class='fas fa-lock'></i>";
+        botonEditar.classList.add = 'boton-editar';
+        newDiv.appendChild(botonEditar);
 
+        const botonRemover = document.createElement('button');
+        botonRemover.innerHTML = "<i class='fas fa-trash'></i>";
+        botonRemover.classList.add = 'boton-remover';
+        newDiv.appendChild(botonRemover);
 
-
-
+        botonEditar.addEventListener("click", function () {
+            if (inputItem.disabled == true) {
+                inputItem.disabled = false;
+                botonEditar.innerHTML = '<i class="fa-solid fa-lock-open"></i>';
+                
+            } else {
+                inputItem.disabled = true;
+                botonEditar.innerHTML = '<i class="fa-solid fa-lock"></i>';
+                
+            };
+        });
+       
+        botonRemover.addEventListener("click", function(){ 
+            contenedor.removeChild(newDiv)
+        })
     }
 }
